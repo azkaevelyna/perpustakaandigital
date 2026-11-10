@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petal Pages | Digital Library</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --pink: #e9b9cb;
+            --pink-dark: #b97894;
+            --pink-light: #f9eaf0;
+            --yellow: #f5e6a9;
+            --cream: #fffaf3;
+            --sage: #a9b9a0;
+            --text: #66565d;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: rgba(255,250,243,0.95);
+            border-bottom: 1px solid #f1e4e3;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            color: var(--pink-dark);
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #c4a45d;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 13px;
+            margin-left: 25px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: var(--pink-dark);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 75px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: linear-gradient(120deg, #f9eaf0, #fff7df);
+        }
+
+        .hero-text {
+            max-width: 570px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: white;
+            color: var(--pink-dark);
+            padding: 8px 17px;
+            border-radius: 30px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 6vw, 65px);
+            line-height: 1.15;
+            color: #916579;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #c5a052;
+            font-style: italic;
+        }
+
+        .hero p {
+            line-height: 1.9;
+            font-size: 14px;
+            max-width: 470px;
+            color: #806d73;
+            margin-bottom: 28px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            text-decoration: none;
+            background: var(--pink-dark);
+            color: white;
+            padding: 13px 25px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #9e617b;
+            transform: translateY(-3px);
+        }
+
+        .hero-art {
+            width: 320px;
+            min-width: 240px;
+            height: 310px;
+            background: #f3dfb5;
+            border-radius: 48% 48% 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 110px;
+            position: relative;
+            box-shadow: 12px 12px 0 #e9c5d3;
+        }
+
+        .hero-art small {
+            position: absolute;
+            font-size: 25px;
+        }
+
+        .hero-art .flower {
+            top: 35px;
+            right: 35px;
+        }
+
+        .hero-art .butterfly {
+            bottom: 45px;
+            left: 25px;
+        }
+
+        /* STUDENT ID */
+        .identity {
+            max-width: 1050px;
+            margin: 55px auto;
+            padding: 0 25px;
+        }
+
+        .identity-card {
+            background: white;
+            border: 1px solid #f0dfe5;
+            padding: 25px 30px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 7px 25px #b88a9410;
+        }
+
+        .identity h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--pink-dark);
+            font-size: 22px;
+        }
+
+        .identity p {
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .identity strong {
+            color: #a77b8e;
+        }
+
+        /* SECTION */
+        .collection {
+            max-width: 1100px;
+            margin: 70px auto;
+            padding: 0 25px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading small {
+            color: #b99b58;
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .section-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #916579;
+            margin-top: 9px;
+        }
+
+        .section-heading p {
+            font-size: 13px;
+            margin-top: 10px;
+            color: #99858b;
+        }
+
+        /* BOOK GRID */
+        .books {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 22px;
+        }
+
+        .book-card {
+            background: white;
+            padding: 12px;
+            border-radius: 15px;
+            border: 1px solid #f0e1e5;
+            transition: 0.3s;
+            box-shadow: 0 5px 18px #a77b8e0d;
+        }
+
+        .book-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px #b9789420;
+        }
+
+        .book-cover {
+            height: 175px;
+            border-radius: 9px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 12px;
+            margin-bottom: 14px;
+        }
+
+        .book-cover span {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .book-cover small {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #755d64;
+        }
+
+        .cover-pink { background: #f6dce6; }
+        .cover-yellow { background: #f8edc8; }
+        .cover-sage { background: #e0e9dc; }
+        .cover-cream { background: #f4e9db; }
+        .cover-lilac { background: #ebe2ef; }
+
+        .book-card h3 {
+            font-size: 12px;
+            line-height: 1.6;
+            min-height: 38px;
+            color: #745e68;
+            margin-bottom: 12px;
+        }
+
+        .book-card a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            padding: 9px 5px;
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .book-card a:hover {
+            background: var(--yellow);
+            color: #94753f;
+        }
+
+        /* UGC */
+        .ugc {
+            max-width: 1050px;
+            margin: 80px auto;
+            padding: 0 25px;
+        }
+
+        .ugc-box {
+            background: #f5ebc7;
+            padding: 45px;
+            border-radius: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .ugc-text {
+            max-width: 570px;
+        }
+
+        .ugc-text small {
+            color: #a18449;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-size: 11px;
+        }
+
+        .ugc h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #92754b;
+            margin: 10px 0;
+        }
+
+        .ugc p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #84734e;
+        }
+
+        .ugc-button {
+            display: inline-block;
+            background: var(--pink-dark);
+            color: white;
+            padding: 14px 23px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .ugc-button:hover {
+            background: #965d77;
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #f5e0e7;
+            text-align: center;
+            padding: 30px 15px;
+            color: #936d7e;
+        }
+
+        footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 11px;
+            line-height: 2;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .books {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-art {
+                width: 260px;
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 11px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .books {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 13px;
+            }
+
+            .book-cover {
+                height: 150px;
+            }
+
+            .section-heading h2 {
+                font-size: 29px;
+            }
+
+            .ugc-box {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">petal<span>pages.</span></div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#collection">Collection</a>
+        <a href="#ugc">UGC</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+
+    <div class="hero-text">
+        <span class="tag">✿ YOUR LITTLE READING SPACE</span>
+
+        <h1>A little place<br>for <span>lovely reads.</span></h1>
+
+        <p>
+            Selamat datang di Petal Pages, perpustakaan digital
+            yang menyediakan berbagai koleksi buku elektronik
+            sebagai sumber bacaan dan informasi untuk menambah
+            wawasan serta mendukung kebutuhan belajar.
+        </p>
+
+        <a href="#collection" class="hero-button">
+            Explore Collection ♡
+        </a>
+    </div>
+
+    <div class="hero-art">
+        📚
+        <small class="flower">🌼</small>
+        <small class="butterfly">🦋</small>
+    </div>
+
+</header>
+
+<!-- IDENTITY -->
+<section class="identity">
+
+    <div class="identity-card">
+
+        <div>
+            <h3>Reader's Identity ♡</h3>
+            <p>Get to know the curator of this little library.</p>
+        </div>
+
+        <div>
+            <p><strong>Nama:</strong> AZKA EVELYNA MAWARID</p>
+            <p><strong>NIM:</strong> 13040124130077</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EBOOK COLLECTION -->
+<section class="collection" id="collection">
+
+    <div class="section-heading">
+        <small>THE READING CORNER</small>
+        <h2>A Shelf Full of Stories</h2>
+        <p>Find your next favorite read among our little collection.</p>
+    </div>
+
+    <div class="books">
+
+        <div class="book-card">
+            <div class="book-cover cover-pink">
+                <span>🌷</span>
+                <small>Book One</small>
+            </div>
+            <h3>01. Judul Buku 1</h3>
+            <a href="ebook/buku-01.pdf" target="_blank">Read Book ↗</a>
+        </div>
+
+        <div class="book-card">
+            <div class="book-cover cover-yellow">
+                <span>🌼</span>
+                <small>Book Two</small>
+            </div>
+            <h3>02. Judul Buku 2</h3>
+            <a href="ebook/buku-02.pdf" target="_blank">Read Book ↗</a>
+        </div>
+
+        <div class="book-card">
+            <div class="book-cover cover-sage">
+                <span>🍃</span>
+                <small>Book Three</small>
+            </div>
+            <h3>03. Judul Buku 3</h3>
+            <a href="ebook/buku-03.pdf" target="_blank">Read Book ↗</a>
+        </div>
+
+        <div class="book-card">
+            <div class="book-cover cover-cream">
+                <span>📖</span>
+                <small>Book Four</small>
+            </div>
+            <h3>04. Judul Buku 4</h3>
+            <a href="ebook/buku-04.pdf" target="_blank">Read Book ↗</a>
+        </div>
+
+        <div class="book-card">
+            <div class="book-cover cover-lilac">
+                <span>🦋</span>
+                <small>Book Five</small>
+            </div>
+            <h3>05. Judul Buku 5</h3>
+            <a href="ebook/buku-05.pdf" target="_blank">Read Book ↗</a>
+        </div>
+
+        <div class="book-card">
+            <div class="book-cover cover-yellow">
+                <span>🌻</span>
+                <small>Book Six</small>
+            </div>
+            <h3>06. Judul Buku 6</h3>
+            <a href="ebook/buku-06.pdf" target="_blank">Read Book ↗</a>
+        </div>
+
+        <div class="book-card">
+            <div class="book-cover cover-cream">
+                <span>☁️</span>
+                <small>Book Seven</small>
+            </div>
+            <h3>07. Judul Buku 7</h3>
+            <a href="ebook/buku-07.pdf" target="_blank">Read Book ↗</a>
+        </div>
+
+        <div class="book-card">
+            <div class="book-cover cover-pink">
+                <span>🌸</span>
+                <small>Book Eight</small>
+            </div>
+            <h3>08. Judul Buku 8</h3>
+            <a href="ebook/buku-08.pdf" target="_blank">Read Book ↗</a>
+        </div>
+
+        <div class="book-card">
+            <div class="book-cover cover-sage">
+                <span>🌿</span>
+                <small>Book Nine</small>
+            </div>
+            <h3>09. Judul Buku 9</h3>
+            <a href="ebook/buku-09.pdf" target="_blank">Read Book ↗</a>
+        </div>
+
+        <div class="book-card">
+            <div class="book-cover cover-lilac">
+                <span>💐</span>
+                <small>Book Ten</small>
+            </div>
+            <h3>10. Judul Buku 10</h3>
+            <a href="ebook/buku-10.pdf" target="_blank">Read Book ↗</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- UGC -->
+<section class="ugc" id="ugc">
+
+    <div class="ugc-box">
+
+        <div class="ugc-text">
+            <small>LEARNING & REFLECTION</small>
+
+            <h2>A Little Learning Corner ♡</h2>
+
+            <p>
+                Dokumentasi ringkasan pemaparan User Generated
+                Content (UGC), dilengkapi dengan wawasan dan
+                pengetahuan baru yang diperoleh dari kegiatan
+                pembelajaran.
+            </p>
+        </div>
+
+        <a href="ebook/ringkasan-ugc.pdf"
+           target="_blank"
+           class="ugc-button">
+            Read UGC Summary ↗
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h3>petal pages. ♡</h3>
+    <p>A little place for lovely reads and endless discoveries.</p>
+    <p>Digital Library © 2026</p>
+</footer>
+
+</body>
+</html>
